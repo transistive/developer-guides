@@ -23,9 +23,9 @@ You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[N
 This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
 To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
 
-++++
+<!-- ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++
+++++ -->
 
 [#neo4j-javascript]
 == Before We Start - Why Neo4j?
@@ -122,7 +122,8 @@ Now you’re looking for a demo app or template to start putting those skills in
 
 If you haven't already, clone the https://github.com/neo4j-examples/neo4j-movies-template[Neo4j Movie Template] onto your machine.
 This tutorial post will walk you through rating a movie on a sample movie rating application, from the initial setup to viewing the list of movies you’ve rated.
-The following video will walk briefly walk you through the various features of the movie app. 
+The following video will walk briefly walk you through the various features of the movie app.
+Although the title of the video is "Python App Walkthrough" the functionality of the JavaScript version should be identical. 
 
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Oatm1WWmIHg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
