@@ -249,16 +249,16 @@ The information from the call would be routed by `api/routes/genres.js` in and o
 .api/models/genres.js
 [source,javascript,role=nocopy]
 ----
-var _ = require('lodash');
-var Genre = require('../models/neo4j/genre');
+const _ = require('lodash');
+const Genre = require('../models/neo4j/genre');
 
-var getAll = function(session) {
+const getAll = function(session) {
   return session.readTransaction(txc =>
       txc.run('MATCH (genre:Genre) RETURN genre')
     ).then(_manyGenres);
 };
 
-var _manyGenres = function (result) {
+const _manyGenres = function (result) {
   return result.records.map(r => new Genre(r.get('genre')));
 };
 
@@ -345,8 +345,8 @@ api.post("/register", routes.users.register);
 [source,javascript,role=nocopy]
 ----
 exports.register = function (req, res, next) {
-  var username = _.get(req.body, 'username');
-  var password = _.get(req.body, 'password');
+  const username = _.get(req.body, 'username');
+  const password = _.get(req.body, 'password');
 
   if (!username) {
     throw {username: 'This field is required.', status: 400};
@@ -462,7 +462,7 @@ The information is routed through `api/routes/movies.js`:
 ----
 exports.rateMovie = function (req, res, next) {
   loginRequired(req, res, () => {
-    var rating = Number(_.get(req.body, 'rating'));
+    const rating = Number(_.get(req.body, 'rating'));
     if (Number.isNaN(rating) || rating < 0 || rating >= 6) {
       throw {rating: 'Rating value is invalid', status: 400};
     }
@@ -479,7 +479,7 @@ The rating is applied at the `api/models/movies.js`
 .api/models/movies.js
 [source,javascript,role=nocopy]
 ----
-var rate = function (session, movieId, userId, rating) {
+const rate = function (session, movieId, userId, rating) {
   return session.writeTransaction(txc =>
     txc.run(
       'MATCH (u:User {id: $userId}),(m:Movie {tmdbId: $movieId}) \
@@ -554,7 +554,7 @@ The "Featured Movies" portion at the top calls three hard-coded movies.
 [source,javascript,role=nocopy]
 ----
 renderFeatured() {
-    var {movies} = this.props;
+    const {movies} = this.props;
 
     return (
       <div className="nt-home-featured">
