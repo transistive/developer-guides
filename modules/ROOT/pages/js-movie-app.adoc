@@ -23,9 +23,9 @@ You should have cloned https://github.com/neo4j-examples/neo4j-movies-template[N
 This course provides an overview of what you need to know to write an Express application using a Neo4j database. 
 To keep concepts simple, the application is an IMDB clone with basic account authentication and movie recommendation functionality. 
 
-<!-- ++++
+++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3L89pVRZOx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++ -->
+++++ 
 
 [#neo4j-javascript]
 == Before We Start - Why Neo4j?
@@ -166,13 +166,12 @@ You can find the front-end code in the `web` directory.
 
 === Setup
 
-<!--
+
 To get the project running, clone the repo and follow along with these instructions, which are be recapped in the video:
 
-// TK VIDEO
- ++++
+++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2Jis6hvkoQQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-++++ -->
+++++ 
 
 If you haven't already, https://github.com/neo4j-examples/neo4j-movies-template[clone the repo].
 
@@ -464,7 +463,7 @@ The information is routed through `api/routes/movies.js`:
 exports.rateMovie = function (req, res, next) {
   loginRequired(req, res, () => {
     var rating = Number(_.get(req.body, 'rating'));
-    if (isNaN(rating) || rating < 0 || rating >= 6) {
+    if (Number.isNaN(rating) || rating < 0 || rating >= 6) {
       throw {rating: 'Rating value is invalid', status: 400};
     }
 
@@ -634,7 +633,6 @@ deploy-web:
     git push heroku-web heroku-web:master --force
 ----
 
-//TK Check Video
 ++++
 <iframe width="560" height="315" src="https://www.youtube.com/embed/V8j9GAYV3co" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ++++
